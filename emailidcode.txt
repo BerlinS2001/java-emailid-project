@@ -1,0 +1,23 @@
+import java.util.regex.*;    
+import java.util.*;    
+public class Validation{  
+    public static void main(String args[]){  
+        ArrayList<String> emails = new ArrayList<String>();  
+          
+        emails.add("berlin@gmail.com");  
+        emails.add("john@gmail.com");  
+        emails.add("joshan@gmail..com"); 
+        //Add invalid emails in list  
+        emails.add("@gmai.com");  
+        //Regular Expression   
+        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";  
+        //Compile regular expression to get the pattern  
+        Pattern pattern = Pattern.compile(regex);  
+        //Iterate emails array list  
+        for(String email : emails){  
+            //Create instance of matcher   
+            Matcher matcher = pattern.matcher(email);  
+            System.out.println(email +" is: "+ matcher.matches()+"\n");  
+        }  
+    }  
+}
